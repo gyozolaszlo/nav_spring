@@ -6,9 +6,15 @@
 
   <groupId>hu.webvalto</groupId>
   <artifactId>eBank</artifactId>
-  <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+      <module>eBank-model</module>
+      <module>eBank-backend</module>
+      <module>eBank-frontend</module>
+    </modules>
 
-  <name>eBank</name>
+    <name>eBank</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
