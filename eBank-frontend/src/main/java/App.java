@@ -4,7 +4,9 @@ public class App {
 
     public static void main(String... args) {
 
-        List<List<String>> data = DataSource.getData();
+        DataProcessor dataProcessor = new DataProcessor();
+
+        List<List<String>> data = dataProcessor.getCustomerData("Johnpaul");
 
         System.out.println(data);
     }

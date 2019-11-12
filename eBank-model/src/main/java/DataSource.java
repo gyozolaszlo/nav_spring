@@ -13,8 +13,10 @@ public class DataSource {
 
         List<String> allLines = null;
 
+        ClassLoader classLoader = ClassLoader.getSystemClassLoader();
+
         try {
-            allLines = Files.readAllLines(Paths.get("eBank-model/src/main/resources/data.txt"));
+            allLines = Files.readAllLines(Paths.get(classLoader.getResource("data.txt").getPath()));
         } catch (IOException e) {
             e.printStackTrace();
         }
