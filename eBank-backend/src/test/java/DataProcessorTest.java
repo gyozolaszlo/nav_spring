@@ -1,3 +1,5 @@
+import hu.webvalto.ebank.DataProcessor;
+import hu.webvalto.ebank.dao.DataSource;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,7 +15,7 @@ class DataProcessorTest {
 
     @BeforeEach
     void createTestObject() {
-        testObj = new DataProcessor();
+        testObj = new DataProcessor(new DataSource());
     }
 
     @AfterEach

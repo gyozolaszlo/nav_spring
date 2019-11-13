@@ -12,11 +12,13 @@
     <artifactId>eBank-frontend</artifactId>
 
     <dependencies>
+
         <dependency>
             <groupId>hu.webvalto</groupId>
             <artifactId>eBank-backend</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+
     </dependencies>
 
     <build>
@@ -36,6 +38,12 @@
                 <filtering>true</filtering>
             </testResource>
         </testResources>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
     </build>
 
 </project>

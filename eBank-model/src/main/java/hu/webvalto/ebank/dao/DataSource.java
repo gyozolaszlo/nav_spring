@@ -1,3 +1,8 @@
+package hu.webvalto.ebank.dao;
+
+import org.springframework.stereotype.Service;
+
+import javax.annotation.PostConstruct;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -5,11 +10,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+@Service
 public class DataSource {
 
     private static List<List<String>> data = new ArrayList<>();
 
-    static {
+    @PostConstruct
+    private void postConstruct() {
 
         List<String> allLines = null;
 
@@ -27,7 +34,12 @@ public class DataSource {
 
     }
 
-    public static List<List<String>> getData() {
-        return data;
+    public List<List<String>> getData() {
+        if (data.size() > 0) {
+            return data;
+        } else {
+            postConstruct();
+            return data;
+        }
     }
 }
