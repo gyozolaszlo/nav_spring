@@ -1,5 +1,7 @@
 package hu.webvalto.ebank.dao;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
@@ -14,6 +16,9 @@ import java.util.List;
 public class DataSource {
 
     private static List<List<String>> data = new ArrayList<>();
+
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
 
     @PostConstruct
     private void postConstruct() {
