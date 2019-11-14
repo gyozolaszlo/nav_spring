@@ -1,6 +1,6 @@
 package hu.webvalto.ebank;
 
-import hu.webvalto.ebank.dao.DataSource;
+import hu.webvalto.ebank.dao.DataStore;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,16 +11,16 @@ import java.util.List;
 public class DataProcessor {
 
     @Autowired
-    private DataSource dataSource;
+    private DataStore dataStore;
 
-    public DataProcessor(DataSource dataSource) {
-        this.dataSource = dataSource;
+    public DataProcessor(DataStore dataStore) {
+        this.dataStore = dataStore;
     }
 
     public List<List<String>> getCustomerData(String namePrefix) {
         List<List<String>> result = new ArrayList<>();
 
-        List<List<String>> data = dataSource.getData();
+        List<List<String>> data = dataStore.getData();
 
         for (List<String> customer: data) {
             if (customer.get(2).startsWith(namePrefix)) {
@@ -33,7 +33,7 @@ public class DataProcessor {
 
     public List<String> getAccountData(String accountNumber) {
 
-        List<List<String>> data = dataSource.getData();
+        List<List<String>> data = dataStore.getData();
 
         for (List<String> customer: data) {
             if (customer.get(1).equals(accountNumber)) {
@@ -43,6 +43,10 @@ public class DataProcessor {
 
         return null;
 
+    }
+
+    public void createDataTable() {
+        dataStore.createDataTable();
     }
 
 }
