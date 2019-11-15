@@ -1,12 +1,10 @@
 package hu.webvalto.ebank;
 
-import hu.webvalto.ebank.DataProcessor;
 import hu.webvalto.ebank.entity.Customer;
 import hu.webvalto.ebank.repository.CustomerRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.powermock.api.mockito.PowerMockito;
 
 import java.util.Arrays;
 import java.util.List;
