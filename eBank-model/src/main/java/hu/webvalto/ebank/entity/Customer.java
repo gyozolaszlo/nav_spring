@@ -1,22 +1,42 @@
 package hu.webvalto.ebank.entity;
 
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
+@Entity
+@Table(name = "customers")
 public class Customer {
 
+    @Id
+    @Column(name = "id")
     private Integer id;
-    private String accountNumber;
+
+    @Column(name = "full_name")
     private String fullName;
+
+    @Column(name = "address")
     private String address;
+
+    @OneToMany(mappedBy = "customer")
+    private List<Account> accounts;
 
     public Customer() {
     }
 
-    public Customer(Integer id, String accountNumber, String fullName, String address) {
+    public Customer(Integer id, String fullName, String address) {
         this.id = id;
-        this.accountNumber = accountNumber;
         this.fullName = fullName;
         this.address = address;
+        this.accounts = new ArrayList<>();
+    }
+
+    public Customer(Integer id, String fullName, String address, List<Account> accounts) {
+        this.id = id;
+        this.fullName = fullName;
+        this.address = address;
+        this.accounts = accounts;
     }
 
     public Integer getId() {
@@ -27,12 +47,12 @@ public class Customer {
         this.id = id;
     }
 
-    public String getAccountNumber() {
-        return accountNumber;
+    public List<Account> getAccounts() {
+        return accounts;
     }
 
-    public void setAccountNumber(String accountNumber) {
-        this.accountNumber = accountNumber;
+    public void setAccounts(List<Account> accounts) {
+        this.accounts = accounts;
     }
 
     public String getFullName() {
